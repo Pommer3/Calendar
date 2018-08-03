@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="calendarController.js"></script>
+</head>
+
+<body ng-app="calendarApp">
+    <div ng-controller="calendarController">
+        <table>
+
+            <tr>
+                <th>Calendar</th>
+            </tr>
+            <tr>
+                <td>
+                    <button ng-click="calendar.back()">Back</button>
+                </td>
+                <td>
+                    {{calendar.getSelectedMonth()}}
+                </td>
+                <td>
+                    {{calendar.getSelectedYear()}} {{calendar.getDay()}}
+                </td>
+                <td>
+                    <button ng-click="calendar.next()">Next</button>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>Tuesday</td>
+                <td>Wednesday</td>
+                <td>Thursday</td>
+                <td>Friday</td>
+                <td>Saturday</td>
+                <td>Sunday</td>
+            </tr>
+            <tr ng-repeat="week in calendar.weeks track by $index">
+                <td ng-repeat="day in week track by $index">
+                    {{day}}
+                   
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>
